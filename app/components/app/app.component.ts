@@ -4,6 +4,11 @@ import {NoteCanvasComponent} from "../note-canvas/note-canvas.component";
 
 @Component({
     selector: 'piano-app',
+    template: `
+        <div id="gameWrapper">
+            <piano (key-pressed)="notePlayed($event)"></piano>
+        </div>
+    `,
     directives: [PianoComponent, NoteCanvasComponent],
 })
 export class AppComponent {}
