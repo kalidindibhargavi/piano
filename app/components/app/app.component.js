@@ -1,4 +1,4 @@
-System.register(["angular2/core", "../piano/piano.component", "../note-canvas/note-canvas.component"], function(exports_1, context_1) {
+System.register(["angular2/core", "../piano/piano.component"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(["angular2/core", "../piano/piano.component", "../note-canvas/no
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, piano_component_1, note_canvas_component_1;
+    var core_1, piano_component_1;
     var AppComponent;
     return {
         setters:[
@@ -19,9 +19,6 @@ System.register(["angular2/core", "../piano/piano.component", "../note-canvas/no
             },
             function (piano_component_1_1) {
                 piano_component_1 = piano_component_1_1;
-            },
-            function (note_canvas_component_1_1) {
-                note_canvas_component_1 = note_canvas_component_1_1;
             }],
         execute: function() {
             AppComponent = (function () {
@@ -31,7 +28,7 @@ System.register(["angular2/core", "../piano/piano.component", "../note-canvas/no
                     core_1.Component({
                         selector: 'piano-app',
                         template: "\n        <div id=\"gameWrapper\">\n            <piano (key-pressed)=\"notePlayed($event)\"></piano>\n        </div>\n    ",
-                        directives: [piano_component_1.PianoComponent, note_canvas_component_1.NoteCanvasComponent],
+                        directives: [piano_component_1.PianoComponent],
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);

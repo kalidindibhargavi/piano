@@ -1,6 +1,5 @@
 import {Component} from "angular2/core";
 import {PianoComponent} from "../piano/piano.component";
-import {NoteCanvasComponent} from "../note-canvas/note-canvas.component";
 
 @Component({
     selector: 'piano-app',
@@ -9,6 +8,6 @@ import {NoteCanvasComponent} from "../note-canvas/note-canvas.component";
             <piano (key-pressed)="notePlayed($event)"></piano>
         </div>
     `,
-    directives: [PianoComponent, NoteCanvasComponent],
+    directives: [PianoComponent],
 })
 export class AppComponent {}

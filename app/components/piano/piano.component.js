@@ -52,9 +52,14 @@ System.register(["angular2/core"], function(exports_1, context_1) {
                         { whiteKeyId: 59, blackKeyId: 60 },
                         { whiteKeyId: 61, blackKeyId: 62 },
                         { whiteKeyId: 63, blackKeyId: 0 },
-                        { whiteKeyId: 64, blackKeyId: 0 } //c
+                        { whiteKeyId: 64, blackKeyId: 0 }
                     ];
                 }
+                PianoComponent.prototype.keyPress = function (keyNumber) {
+                    this.keyPressed.emit({ key: keyNumber });
+                    var audio = new Audio('app/components/piano/sounds/' + keyNumber + '.wav');
+                    audio.play();
+                };
                 __decorate([
                     core_3.Output("key-pressed"), 
                     __metadata('design:type', Object)
