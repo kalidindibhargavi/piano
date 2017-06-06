@@ -1,3 +1,4 @@
 <div id="gameWrapper">
-    <p>Hope u will enjoy our application</p>
+    <note-canvas [keyPressed]="pressed"></note-canvas>
+    <piano (key-pressed)="keyPressed($event)"></piano>
 </div>

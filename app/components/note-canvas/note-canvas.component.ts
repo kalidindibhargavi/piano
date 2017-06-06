@@ -6,9 +6,8 @@ import {Input} from "angular2/core";
 @Component({
     selector: 'note-canvas',
     styleUrls: ['app/components/note-canvas/note-canvas.component.css'],
-    inputs: ['note'],
-    template: '<div id="canvasWrapper"><canvas id="gameCanvas" width="900" height="500"></canvas></div>'
-    
+    templateUrl: 'app/components/note-canvas/note-canvas.component.html',
+    inputs: ['note']
 })
 
 export class NoteCanvasComponent {

@@ -65,8 +65,8 @@ System.register(["angular2/core"], function(exports_1, context_1) {
                     core_1.Component({
                         selector: 'note-canvas',
                         styleUrls: ['app/components/note-canvas/note-canvas.component.css'],
-                        inputs: ['note'],
-                        template: '<div id="canvasWrapper"><canvas id="gameCanvas" width="900" height="500"></canvas></div>'
+                        templateUrl: 'app/components/note-canvas/note-canvas.component.html',
+                        inputs: ['note']
                     }), 
                     __metadata('design:paramtypes', [core_2.ElementRef])
                 ], NoteCanvasComponent);
@@ -76,4 +76,4 @@ System.register(["angular2/core"], function(exports_1, context_1) {
         }
     }
 });
-//# sourceMappingURL=note.canvas.component.js.map
+//# sourceMappingURL=note-canvas.component.js.map
