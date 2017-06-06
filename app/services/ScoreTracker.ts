@@ -9,7 +9,7 @@ export class ScoreTracker {
     private _todosObserver: any;
     public totalNotesPlayed: number = 0;
     // Control total number of notes per test round.
-    public notesLimit: number = 20;
+    public notesLimit: number = 50;
     constructor(){
         this.todos$ = new Observable(observer => this._todosObserver = observer).share();
     }

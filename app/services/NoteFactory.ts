@@ -5,13 +5,10 @@ import {IKeyPressed} from "../contracts/IKeyPressed";
 
 @Injectable()
 export class NoteFactory implements INoteTransformer {
-
     private notePositions: INotePosition[];
-
     constructor(){
         var crotchetUp = "crotchet_up";
         var crotchetDown = "crotchet_down";
-
         this.notePositions = [
             { key: 'g5', yPos: 86, keyNumber: 60, imageName: crotchetDown, type: 'sharp' },
             { key: 'g5', yPos: 86, keyNumber: 59, imageName: crotchetDown },
@@ -66,16 +63,13 @@ export class NoteFactory implements INoteTransformer {
             { key: 'e3', yPos: 323, keyNumber: 31, imageName: crotchetDown, type: 'flat' }
         ];
     }
-
     private randomIntFromInterval(min, max) {
         return Math.floor(Math.random()*(max-min+1)+min);
     }
-
     getRandomNote(){
         var randomNumber = this.randomIntFromInterval(0, this.notePositions.length - 1);
         return this.notePositions[randomNumber];
     }
-
     generate(keyPosition : string): INotePosition {
         var note : INotePosition;
         for(var i = 0; i <= this.notePositions.length; i++){
@@ -85,9 +79,7 @@ export class NoteFactory implements INoteTransformer {
         }
         return <INotePosition>{};
     }
-
     keyToNoteConverter(data: IKeyPressed){
-        //console.log("key:" + data.key + " - keyType: " + data.keyType);
         for(var i = 0; i < this.notePositions.length; i++){
             if (this.notePositions[i].keyNumber === data.key){
                 return this.notePositions[i];

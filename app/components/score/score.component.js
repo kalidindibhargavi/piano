@@ -1,4 +1,4 @@
-System.register(["angular2/core", "../../services/ScoreTracker", 'rxjs/add/operator/filter'], function(exports_1, context_1) {
+System.register(["angular2/core"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,35 +10,17 @@ System.register(["angular2/core", "../../services/ScoreTracker", 'rxjs/add/opera
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, ScoreTracker_1;
+    var core_1;
     var ScoreComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
-            },
-            function (ScoreTracker_1_1) {
-                ScoreTracker_1 = ScoreTracker_1_1;
-            },
-            function (_1) {}],
+            }],
         execute: function() {
             ScoreComponent = (function () {
-                function ScoreComponent(tracker) {
-                    this.tracker = tracker;
-                    this.notes = [];
-                    this.scoreTracker = tracker;
+                function ScoreComponent() {
                 }
-                ScoreComponent.prototype.ngOnInit = function () {
-                    var _this = this;
-                    var note;
-                    this.scoreTracker.todos$.subscribe(function (notes) {
-                        note = notes[notes.length - 1];
-                        _this.notes.push(note);
-                    });
-                };
-                ScoreComponent.prototype.resetScore = function () {
-                    this.scoreTracker.resetScore();
-                };
                 ScoreComponent = __decorate([
                     core_1.Component({
                         selector: 'score',
@@ -46,7 +28,7 @@ System.register(["angular2/core", "../../services/ScoreTracker", 'rxjs/add/opera
                         template: "\n    <div class=\"score-wrapper\">\n        <div class=\"score-wrapper__content\">\n            <p>Total Notes: {{ scoreTracker.totalNotesPlayed }} of {{ scoreTracker.notesLimit }}</p>\n        </div>\n    </div>\n    ",
                         inputs: ['generatedNote', 'userIsCorrect', 'gameIsStarted']
                     }), 
-                    __metadata('design:paramtypes', [ScoreTracker_1.ScoreTracker])
+                    __metadata('design:paramtypes', [])
                 ], ScoreComponent);
                 return ScoreComponent;
             }());

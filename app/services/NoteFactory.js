@@ -93,7 +93,6 @@ System.register(["angular2/core"], function(exports_1, context_1) {
                     return {};
                 };
                 NoteFactory.prototype.keyToNoteConverter = function (data) {
-                    //console.log("key:" + data.key + " - keyType: " + data.keyType);
                     for (var i = 0; i < this.notePositions.length; i++) {
                         if (this.notePositions[i].keyNumber === data.key) {
                             return this.notePositions[i];

@@ -11,7 +11,6 @@ import {Input} from "angular2/core";
 })
 
 export class NoteCanvasComponent {
-    private canvasWidth: number;
     private canvas: HTMLCanvasElement;
     private context: CanvasRenderingContext2D;
     @Input() keyPressed : any;
@@ -19,7 +18,6 @@ export class NoteCanvasComponent {
     constructor(private element: ElementRef) {
         this.canvas = this.element.nativeElement.querySelector('canvas');
         this.context = this.canvas.getContext('2d');
-        this.canvasWidth = 900;
     }
     private drawImage(url: string, x: number = 0, y: number = 0) {
         const image = new Image();
@@ -41,7 +39,6 @@ export class NoteCanvasComponent {
         this.drawNote(note);
     }
     public clearCanvas() {
-        this.context.globalCompositeOperation = 'destination-over';
         this.context.clearRect(0, 0, 900, 500);
     }
 }
