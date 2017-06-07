@@ -25,7 +25,7 @@ System.register(["angular2/core"], function(exports_1, context_1) {
                     core_1.Component({
                         selector: 'score',
                         styleUrls: ['app/components/score/score.component.css'],
-                        template: "\n    <div class=\"score-wrapper\">\n        <div class=\"score-wrapper__content\">\n            <p>Total Notes: {{ scoreTracker.totalNotesPlayed }} of {{ scoreTracker.notesLimit }}</p>\n        </div>\n    </div>\n    ",
+                        template: "",
                         inputs: ['generatedNote', 'userIsCorrect', 'gameIsStarted']
                     }), 
                     __metadata('design:paramtypes', [])
