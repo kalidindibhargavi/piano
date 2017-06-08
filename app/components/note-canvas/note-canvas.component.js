@@ -23,8 +23,11 @@ System.register(["angular2/core"], function(exports_1, context_1) {
             NoteCanvasComponent = (function () {
                 function NoteCanvasComponent(element) {
                     this.element = element;
+                    this.CANVAS_HEIGHT = 500;
+                    this.CANVAS_WIDTH = 900;
                     this.canvas = this.element.nativeElement.querySelector('canvas');
                     this.context = this.canvas.getContext('2d');
+                    this.canvasWidth = 900;
                 }
                 NoteCanvasComponent.prototype.drawImage = function (url, x, y) {
                     var _this = this;
@@ -49,6 +52,7 @@ System.register(["angular2/core"], function(exports_1, context_1) {
                     this.drawNote(note);
                 };
                 NoteCanvasComponent.prototype.clearCanvas = function () {
+                    this.context.globalCompositeOperation = 'destination-over';
                     this.context.clearRect(0, 0, 900, 500);
                 };
                 __decorate([

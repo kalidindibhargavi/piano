@@ -6,5 +6,60 @@
     top: -5px;
     right: 0;
     padding-top: 70px;
-    z-index: 10;
+}
+
+.score-wrapper__content {
+    padding: 20px;
+}
+
+.score-wrapper__content p {
+
+}
+
+.tries {
+    margin: 0;
+    font-weight: bold;
+}
+
+.tries--correct {
+    color: green;
+    margin-bottom: 10px;
+}
+
+.tries--incorrect {
+    color: red;
+}
+
+/* Correct/Incorrect notice */
+
+.score-notice {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+
+.score-notice p {
+    margin: 0;
+}
+
+.successfully-saved {
+    color: #FFFFFF;
+    text-align: center;
+    opacity: 1;
+}
+
+.score-wrapper__label {
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px;
+    color: #fff;
+    border-radius: 3px;
+}
+
+.score-wrapper__label--success {
+    background-color: green;
+}
+
+.score-wrapper__label--wrong {
+    background-color: red;
 }

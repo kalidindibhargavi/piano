@@ -14,6 +14,7 @@ import {ScoreTracker} from "../../services/ScoreTracker";
     template: `
         <div id="gameWrapper">
             <div id="canvasPanel">
+                <score [generatedNote]="generatedNote" [userIsCorrect]="userIsCorrect" [gameIsStarted]="gameIsStarted"></score>
                 <note-canvas [keyPressed]="pressed"></note-canvas>
                 <button (click)="toggleGame()" id="beginButton">{{ buttonLabel }}</button>
             </div>
@@ -43,6 +44,7 @@ export class AppComponent {
         var note = <INotePosition>this.noteFactory.keyToNoteConverter(noteData);
         if (!note) return;
         this.userIsCorrect = note.keyNumber === this.generatedNote.keyNumber;
+        this.scoreTracker.updateScore({ actualKeyNumber: note.keyNumber, expectedKeyNumber: this.generatedNote.keyNumber, correct: this.userIsCorrect });
         this.scoreTracker.updateTotalNotesPlayed();
         this.scoreTracker.notesLimitReached() ? this.endGame() : this.generateNote();
     }
@@ -58,6 +60,8 @@ export class AppComponent {
         this.userIsCorrect = null;
         this.buttonLabel = "Click to end test";
         this.generateNote();
+        this.scoreTracker.resetScore();
+        this.scoreComponent.resetScore();
     }
     endGame() {
         this.gameIsStarted = false;

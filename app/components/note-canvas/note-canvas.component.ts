@@ -11,13 +11,17 @@ import {Input} from "angular2/core";
 })
 
 export class NoteCanvasComponent {
+    private canvasWidth: number;
     private canvas: HTMLCanvasElement;
     private context: CanvasRenderingContext2D;
+    private CANVAS_HEIGHT = 500;
+    private CANVAS_WIDTH = 900;
     @Input() keyPressed : any;
     @Input() note: INotePosition;
     constructor(private element: ElementRef) {
         this.canvas = this.element.nativeElement.querySelector('canvas');
         this.context = this.canvas.getContext('2d');
+        this.canvasWidth = 900;
     }
     private drawImage(url: string, x: number = 0, y: number = 0) {
         const image = new Image();
@@ -34,11 +38,12 @@ export class NoteCanvasComponent {
                 this.drawImage('app/components/note-canvas/images/' + note.type + '.png', 410, note.keyNumber >= 39 && note.keyNumber <= 52 ? note.yPos + 30 : note.yPos - 30);
             }
         }
-    }
+   }
     public updateCanvas(note: INotePosition){
         this.drawNote(note);
     }
     public clearCanvas() {
+        this.context.globalCompositeOperation = 'destination-over';
         this.context.clearRect(0, 0, 900, 500);
     }
 }

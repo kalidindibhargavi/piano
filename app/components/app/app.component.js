@@ -50,6 +50,7 @@ System.register(["angular2/core", "../piano/piano.component", "../note-canvas/no
                     if (!note)
                         return;
                     this.userIsCorrect = note.keyNumber === this.generatedNote.keyNumber;
+                    this.scoreTracker.updateScore({ actualKeyNumber: note.keyNumber, expectedKeyNumber: this.generatedNote.keyNumber, correct: this.userIsCorrect });
                     this.scoreTracker.updateTotalNotesPlayed();
                     this.scoreTracker.notesLimitReached() ? this.endGame() : this.generateNote();
                 };
@@ -65,6 +66,8 @@ System.register(["angular2/core", "../piano/piano.component", "../note-canvas/no
                     this.userIsCorrect = null;
                     this.buttonLabel = "Click to end test";
                     this.generateNote();
+                    this.scoreTracker.resetScore();
+                    this.scoreComponent.resetScore();
                 };
                 AppComponent.prototype.endGame = function () {
                     this.gameIsStarted = false;
@@ -83,7 +86,7 @@ System.register(["angular2/core", "../piano/piano.component", "../note-canvas/no
                     core_1.Component({
                         selector: 'piano-app',
                         styleUrls: ['app/components/app/app.component.css'],
-                        template: "\n        <div id=\"gameWrapper\">\n            <div id=\"canvasPanel\">\n                <note-canvas [keyPressed]=\"pressed\"></note-canvas>\n                <button (click)=\"toggleGame()\" id=\"beginButton\">{{ buttonLabel }}</button>\n            </div>\n            <piano (key-pressed)=\"notePlayed($event)\"></piano>\n        </div>\n    ",
+                        template: "\n        <div id=\"gameWrapper\">\n            <div id=\"canvasPanel\">\n                <score [generatedNote]=\"generatedNote\" [userIsCorrect]=\"userIsCorrect\" [gameIsStarted]=\"gameIsStarted\"></score>\n                <note-canvas [keyPressed]=\"pressed\"></note-canvas>\n                <button (click)=\"toggleGame()\" id=\"beginButton\">{{ buttonLabel }}</button>\n            </div>\n            <piano (key-pressed)=\"notePlayed($event)\"></piano>\n        </div>\n    ",
                         directives: [piano_component_1.PianoComponent, note_canvas_component_1.NoteCanvasComponent, score_component_1.ScoreComponent],
                         providers: [NoteFactory_1.NoteFactory, ScoreTracker_1.ScoreTracker]
                     }), 
