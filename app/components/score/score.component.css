@@ -5,7 +5,7 @@
     position: absolute;
     top: -5px;
     right: 0;
-    padding-top: 70px;
+    padding-top: 50px;
 }
 
 .score-wrapper__content {
@@ -13,7 +13,7 @@
 }
 
 .score-wrapper__content p {
-
+    
 }
 
 .tries {

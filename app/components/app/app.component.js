@@ -49,8 +49,8 @@ System.register(["angular2/core", "../piano/piano.component", "../note-canvas/no
                     var note = this.noteFactory.keyToNoteConverter(noteData);
                     if (!note)
                         return;
-                    this.userIsCorrect = note.keyNumber === this.generatedNote.keyNumber;
-                    this.scoreTracker.updateScore({ actualKey: note.key, actualType: note.type, correct: this.userIsCorrect });
+                    this.userIsCorrect = note.keyNumber == this.generatedNote.keyNumber;
+                    this.scoreTracker.updateScore({ actualKey: note.key, actualType: note.type, genKey: this.generatedNote.key, genType: this.generatedNote.type, correct: this.userIsCorrect });
                     this.scoreTracker.updateTotalNotesPlayed();
                     this.scoreTracker.notesLimitReached() ? this.endGame() : this.generateNote();
                 };
