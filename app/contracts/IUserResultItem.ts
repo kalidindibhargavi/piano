@@ -1,5 +1,5 @@
 export interface IUserResultItem {
-    expectedKeyNumber: number;
-    actualKeyNumber: number;
+    actualKey: String;
+    actualType: String;
     correct: boolean;
 }

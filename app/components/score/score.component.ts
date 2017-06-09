@@ -18,9 +18,12 @@ import 'rxjs/add/operator/filter';
     </div>
     <div class="score-wrapper">
         <div class="score-wrapper__content">
-        <p>Total Notes: {{ scoreTracker.totalNotesPlayed }} of {{ scoreTracker.notesLimit }}</p>
-        <p class="tries tries--correct">Correct Notes: {{ scoreTracker.totalCorrect }} of {{ scoreTracker.notesLimit }}</p>
-        <p class="tries tries--incorrect">Incorrect Notes: {{ scoreTracker.totalIncorrect }} of {{ scoreTracker.notesLimit }}</p>
+            <p>Total Notes: {{ scoreTracker.totalNotesPlayed }} of {{ scoreTracker.notesLimit }}</p>
+            <p class="tries tries--correct">Correct Notes: {{ scoreTracker.totalCorrect }} of {{ scoreTracker.notesLimit }}</p>
+            <p class="tries tries--incorrect">Incorrect Notes: {{ scoreTracker.totalIncorrect }} of {{ scoreTracker.notesLimit }}</p>
+            <ul>
+                <li *ngFor="#note of notes">correct answer: {{ note.actualKey }} {{note.actualType}}</li>
+            </ul>
         </div>
     </div>
     `,

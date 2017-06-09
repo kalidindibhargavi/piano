@@ -50,7 +50,7 @@ System.register(["angular2/core", "../piano/piano.component", "../note-canvas/no
                     if (!note)
                         return;
                     this.userIsCorrect = note.keyNumber === this.generatedNote.keyNumber;
-                    this.scoreTracker.updateScore({ actualKeyNumber: note.keyNumber, expectedKeyNumber: this.generatedNote.keyNumber, correct: this.userIsCorrect });
+                    this.scoreTracker.updateScore({ actualKey: note.key, actualType: note.type, correct: this.userIsCorrect });
                     this.scoreTracker.updateTotalNotesPlayed();
                     this.scoreTracker.notesLimitReached() ? this.endGame() : this.generateNote();
                 };

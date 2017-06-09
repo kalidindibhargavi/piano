@@ -44,7 +44,7 @@ export class AppComponent {
         var note = <INotePosition>this.noteFactory.keyToNoteConverter(noteData);
         if (!note) return;
         this.userIsCorrect = note.keyNumber === this.generatedNote.keyNumber;
-        this.scoreTracker.updateScore({ actualKeyNumber: note.keyNumber, expectedKeyNumber: this.generatedNote.keyNumber, correct: this.userIsCorrect });
+        this.scoreTracker.updateScore({ actualKey: note.key, actualType: note.type, correct: this.userIsCorrect });
         this.scoreTracker.updateTotalNotesPlayed();
         this.scoreTracker.notesLimitReached() ? this.endGame() : this.generateNote();
     }
