@@ -22,7 +22,7 @@ import 'rxjs/add/operator/filter';
             <p class="tries tries--correct">Correct Notes: {{ scoreTracker.totalCorrect }} of {{ scoreTracker.notesLimit }}</p>
             <p class="tries tries--incorrect">Incorrect Notes: {{ scoreTracker.totalIncorrect }} of {{ scoreTracker.notesLimit }}</p>
             <ul>
-                <li *ngFor="#note of notes">{{ note.correct }}<span *ngIf ="note.correct != true"> answer: {{ note.genKey }} {{note.genType}}</span></li>
+                <li *ngFor="#note of notes"><span *ngIf ="note.correct == true">Correct</span><span *ngIf ="note.correct != true">Incorrect;  answer: {{ note.genKey }} {{note.genType}}</span></li>
             </ul>
         </div>
     </div>
